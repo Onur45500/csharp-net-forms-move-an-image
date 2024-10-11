@@ -20,7 +20,12 @@ namespace csharp_net_forms_move_an_image
 
         private void FormMouseDown(object sender, MouseEventArgs e)
         {
-
+            Point mousePosition = new Point(e.X, e.Y);
+            if(rect.Contains(mousePosition))
+            {
+                dragging = true;
+                label1.Text = "Dragging the image";
+            }
         }
 
         private void FormMouseMove(object sender, MouseEventArgs e)
