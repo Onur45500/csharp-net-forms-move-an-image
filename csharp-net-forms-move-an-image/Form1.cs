@@ -54,7 +54,10 @@ namespace csharp_net_forms_move_an_image
 
         private void FormTimerEvent(object sender, EventArgs e)
         {
+            rect.X = position.X;
+            rect.Y = position.Y;
 
+            this.Invalidate();
         }
     }
 }
