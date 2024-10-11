@@ -30,7 +30,10 @@ namespace csharp_net_forms_move_an_image
 
         private void FormMouseMove(object sender, MouseEventArgs e)
         {
-
+            if(dragging)
+            {
+                position = e.Location;
+            }
         }
 
         private void FormMouseUp(object sender, MouseEventArgs e)
