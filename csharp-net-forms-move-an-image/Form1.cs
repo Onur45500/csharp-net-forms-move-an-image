@@ -1,3 +1,5 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace csharp_net_forms_move_an_image
 {
     public partial class Form1 : Form
@@ -11,6 +13,9 @@ namespace csharp_net_forms_move_an_image
         public Form1()
         {
             InitializeComponent();
+
+            logo = Image.FromFile("images/LHS.png");
+            rect = new Rectangle(position.X, position.Y, width, height);
         }
 
         private void FormMouseDown(object sender, MouseEventArgs e)
