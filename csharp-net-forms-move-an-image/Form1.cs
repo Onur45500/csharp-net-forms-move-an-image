@@ -1,3 +1,4 @@
+using Microsoft.VisualBasic.Logging;
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.SymbolStore;
 using System.Drawing.Drawing2D;
@@ -10,13 +11,16 @@ namespace csharp_net_forms_move_an_image
         Point position = new Point(200, 200);
         bool dragging;
         Rectangle rect;
-        int height = 200, width = 100;
+        int width, height;
 
         public Form1()
         {
             InitializeComponent();
 
             logo = Image.FromFile("images/LHS.png");
+            width = logo.Width / 4;
+            height = logo.Height / 4;
+
             rect = new Rectangle(position.X, position.Y, width, height);
         }
 
@@ -34,7 +38,8 @@ namespace csharp_net_forms_move_an_image
         {
             if(dragging)
             {
-                position = e.Location;
+                position.X = e.X - (width / 2);
+                position.Y = e.Y - (height / 2);
             }
         }
 
