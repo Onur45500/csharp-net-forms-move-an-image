@@ -1,4 +1,5 @@
 using System.ComponentModel.DataAnnotations;
+using System.Diagnostics.SymbolStore;
 
 namespace csharp_net_forms_move_an_image
 {
@@ -38,7 +39,12 @@ namespace csharp_net_forms_move_an_image
 
         private void FormMouseUp(object sender, MouseEventArgs e)
         {
-
+            if(dragging)
+            {
+                dragging = false;
+                rect.Location = new Point(e.X, e.Y);
+                label1.Text = "Image dropped @ " + rect.Location.ToString();
+            }
         }
 
         private void FormPaint(object sender, PaintEventArgs e)
