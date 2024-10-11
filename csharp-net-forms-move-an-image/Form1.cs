@@ -1,5 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 using System.Diagnostics.SymbolStore;
+using System.Drawing.Drawing2D;
 
 namespace csharp_net_forms_move_an_image
 {
@@ -49,7 +50,19 @@ namespace csharp_net_forms_move_an_image
 
         private void FormPaint(object sender, PaintEventArgs e)
         {
+            Pen outline;
 
+            if(dragging)
+            {
+                outline = new Pen(Color.Yellow, 6);
+            }
+            else
+            {
+                outline = new Pen(Color.Plum, 6);
+            }
+
+            e.Graphics.DrawRectangle(outline, rect);
+            e.Graphics.DrawImage(logo, position.X, position.Y, width, height);
         }
 
         private void FormTimerEvent(object sender, EventArgs e)
